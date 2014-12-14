@@ -1,0 +1,11 @@
+auth.config
+.idea/
+dist/
+.sass-cache/
+docs/
+node_modules/
+bower_components/
+cert/
+dist/
+*.log
+webhook
