@@ -1,9 +1,18 @@
 osxNotifier = require './osxNotifier'
+_ = require 'underscore'
 
-module.exports = (tweet) ->
+module.exports = ( tweet ) ->
   msg = JSON.parse tweet
-  text = msg.text
+  text = _.unescape msg.text
+  for url in msg.entities.urls
+    console.log url
+    text = text.replace url.url, " "
+    text = text.replace url.display_url, " "
+    text = text.replace url.expanded_url, " "
+  text = text.replace /\s{2,}/g, ' '
+  text = text[ 0 ].toUpperCase() + text.substr( 1 ).toLowerCase()
   text = '\\' + text if text[ 0 ] in [ '"', '[', '(', "'" ]
+  console.log text
   options =
     message : text
     title : msg.user.name
