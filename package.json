@@ -4,11 +4,14 @@
   "preferGlobal": false,
   "description": "Simple Twitter Streaming Client",
   "dependencies": {
+    "natural": "^0.1.29",
     "nconf": "^0.7.1",
     "node-redis": "^0.1.7",
     "nomnom": "^1.8.1",
     "q": "~1.0.1",
-    "twit": "^1.1.18"
+    "string": "^3.0.0",
+    "twit": "^1.1.18",
+    "underscore": "^1.7.0"
   },
   "engines": {
     "node": ">= 0.6.0",
