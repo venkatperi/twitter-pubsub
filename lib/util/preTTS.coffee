@@ -31,6 +31,7 @@ mention = (text) ->
   text = text.replace /@[a-z_0-9]+/gi, " "
 
 preprocess = ( text, tweet ) ->
+  console.log tweet
   text = text.replace /RT /gi, "re tweet"
   text = symbol text
   text = mention text

@@ -1,4 +1,5 @@
 redis = require 'node-redis'
+Tweet = require './Tweet'
 
 class Subscriber
   constructor : ( opts = {} ) ->
@@ -28,7 +29,8 @@ class Subscriber
     @redisClient.subscribe "tweet"
 
   onTweet : ( tweet ) =>
-    require( "./notifier/#{@notifier}" )( tweet )
+    console.log tweet.toString()
+    require( "./notifier/#{@notifier}" )( new Tweet( tweet ) )
 
 subscriber = null
 createSubscriber = ( opts ) -> subscriber = new Subscriber opts

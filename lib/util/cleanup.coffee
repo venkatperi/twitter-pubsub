@@ -3,7 +3,7 @@ S = require 'string'
 
 rmProto = ( url ) ->
   url = S( url )
-  for proto in [ "http://", "https://", "ftp://" ]
+  for proto in [ "http://", "https://", "ftp://", "http:/" ]
     url = url.replaceAll proto, ""
   url.toString()
 
@@ -17,7 +17,7 @@ rmAnyUrl = ( text ) ->
 
 cleanup = ( tweet, opts = {} ) ->
   tweet = JSON.parse tweet unless _.isObject( tweet )
-  text = tweet.text
+  text = tweet.retweeted_status?.text or tweet.text
   #  text = tweet.text.toLowerCase()
 
   text = rmAnyUrl text

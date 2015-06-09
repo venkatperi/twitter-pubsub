@@ -24,6 +24,11 @@ list = ( rows ) ->
 
   notifications : notifications
 
+att_tts = (text, opts) ->
+  child = execute "/usr/bin/att-tts"
+  child.stdin.write preTTS( args.message, tweet )
+  child.stdin.end()
+
 module.exports =
   info : ( args, tweet, cb ) ->
     type = "info"
